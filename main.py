@@ -5,6 +5,22 @@ import fastapi
 app = fastapi.FastAPI()
 
 
+@app.get("/")
+def index():
+    body = """
+        <html>
+            <body>
+                <h1>Welcome to the Calculator API!</h1>
+                <div>
+                    "Try it: <a href='/api/calculate?x=7&y=11'>/api/calculate?x=7&y=11</a>"
+                </div>
+            </body>
+        </html>
+    """
+
+    return fastapi.responses.HTMLResponse(content=body)
+
+
 @app.get("/api/calculate")
 def calculate(x: int, y: int, z: Optional[int] = None):
     if z == 0:
