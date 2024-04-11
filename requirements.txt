@@ -7,5 +7,9 @@ bs4
 colorama
 httpx
 
-# mode_manual.py
+# model_manual.py
 python-dateutil
+
+
+# model_pydantic.py
+pydantic
