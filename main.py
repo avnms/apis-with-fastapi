@@ -1,9 +1,25 @@
-from fastapi import FastAPI
+from typing import Optional
 
-app = FastAPI()
+import fastapi
+
+app = fastapi.FastAPI()
 
 
 @app.get("/api/calculate")
-def calculate():
-    value = 2 + 2
-    return {"value": value}
+def calculate(x: int, y: int, z: Optional[int] = None):
+    if z == 0:
+        return fastapi.responses.JSONResponse(
+            {"error": "ERROR: Z cannot be zero."}, status_code=400
+        )
+
+    value = x + y
+
+    if z is not None:
+        value /= z
+
+    return {
+        "x": x,
+        "y": y,
+        "z": z,
+        "value": value,
+    }
