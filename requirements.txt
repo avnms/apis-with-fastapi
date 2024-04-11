@@ -1,2 +1,8 @@
 fastapi
 uvicorn
+
+# async_scrape.py
+requests
+bs4
+colorama
+httpx
