@@ -6,3 +6,6 @@ requests
 bs4
 colorama
 httpx
+
+# mode_manual.py
+python-dateutil
